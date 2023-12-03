@@ -1,0 +1,91 @@
+﻿<Page x:Class="SportKursach.FullInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportKursach"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddPage">
+
+    <Grid x:Name="FullInfoPage1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,95,0">
+            <Label Style="{StaticResource HeaderLabelStyle}" FontSize="12" Width="127">Назва змагання</Label>
+        </Grid>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="125.5,0,0,0">
+            <Label Style="{StaticResource HeaderLabelStyle}"  FontSize="12" Padding="25,12,0,0" Width="137">Вид спорту</Label>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="-28,0,0,0">
+            <Label Style="{StaticResource HeaderLabelStyle}"  FontSize="10">Кількість учасників</Label>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Margin="-180,0,0,0">
+            <Label Style="{StaticResource HeaderLabelStyle}"  FontSize="10">Місце проведення</Label>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Margin="112,0,0,0">
+            <Label Width="180" Padding="40,10,0,0" Style="{StaticResource HeaderLabelStyle}"  FontSize="11">Дата проведення</Label>
+        </Grid>
+    </Grid>
+        <Grid Grid.Column="1">
+
+            <Grid Grid.Row="1">
+                <DataGrid ItemsSource="{Binding YourListOfCompetitions}" SelectedItem="{Binding SelectedCompetition}" CanUserAddRows="False" AutoGenerateColumns="False" HeadersVisibility="None" RowHeight="30" GridLinesVisibility="Horizontal" Margin="0,35,0,-390" Background="White">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="124" Header="Назва змагання" IsReadOnly="True" Binding="{Binding Name}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="95" Header="Вид спорту" IsReadOnly="True" Binding="{Binding Kind}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="115" Header="Кількість учасників" IsReadOnly="True" Binding="{Binding Members}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="119" Header="Місце проведення" IsReadOnly="True" Binding="{Binding Place}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Width="150" Header="Дата проведення" IsReadOnly="True" Binding="{Binding Date}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick" />
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,110 @@
+﻿<Window x:Class="SportKursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="461" Width="850">
+
+    <Window.Resources>
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="10,12,10,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" CornerRadius="10" Background="AliceBlue" Padding="0,5,0,12">
+                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect ShadowDepth="5" Color="#FF5B12E2"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="11"/>
+            <Setter Property="Background" Value="#FF3E0062"/>
+            <Setter Property="BorderBrush" Value="AliceBlue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="44"/>
+        </Style>
+        <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="11"/>
+            <Setter Property="Background" Value="#FF3E0062"/>
+            <Setter Property="BorderBrush" Value="AliceBlue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="44"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#FF3E0062">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition  Height="30*"/>
+                <RowDefinition  Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label FontSize="15" FontWeight="Bold" Foreground="White" Padding="35,5,0,0" BorderThickness="0">
+                    Таблиця змагань
+                </Label>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Margin="0,100,0,60">
+                    <Button x:Name="AddCompetition" Style="{StaticResource CustomButtonStyle}" Content="Нове змагання" Click="Add_Button"/>
+                    <Button x:Name="UpdateCompetition" Style="{StaticResource CustomButtonStyle}" Content="Змінити змагання" Click="Update_Button"/>
+                    <Button x:Name="DeleteCompetition" Style="{StaticResource CustomButtonStyle}" Content="Видалити змагання" Click="Delete_Button"/>
+                    <Button x:Name="FullInfo" Style="{StaticResource CustomButtonStyle}" Content="Повна інформація" Click="FullInfo_Button"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <CheckBox FontSize="15" FontWeight="Bold" Foreground="White" Margin="5,0,0,0">
+                    <TextBlock Margin="-3,-2,0,0">Змагання не відбулися</TextBlock>
+                </CheckBox>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" x:Name="MyGrid">
+            <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+            <Grid x:Name="MyGr">
+                <TextBox Background="#FF5B1287" Foreground="White" FontFamily="Times New Roman" FontSize="15" Padding="150,5,0,0" Margin="20,10,20,383">Программа менеджменту зі спортивних змагань</TextBox>
+                <TextBlock Background="#FF5B1287" Foreground="White" FontFamily="Times New Roman" FontSize="20" Margin="20,67,20,222" Padding="180,30,0,0">
+                    У программі можна:<LineBreak/>1.Дізнатися інформацію щодо змагань.<LineBreak/>2.Видаляти змагання.<LineBreak/>3.Корегувати змагання.
+                </TextBlock>
+                <TextBlock Background="#FF5B1287" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="20,245,268,44" Padding="2,50,0,0">
+                    "Спорт — це єдине, що залишається з нами<LineBreak/> протягом всього життя."<LineBreak/><LineBreak/>--------------------------Білі Джин Кінг------------------------
+                </TextBlock>
+                <TextBlock Background="#FF5B1287" Foreground="White" FontFamily="Times New Roman" FontSize="15" Margin="375,245,26,44" Padding="2,50,0,0">
+                    " Спорт об'єднує народи в єдине "<LineBreak/><LineBreak/><LineBreak/>------------Нельсон Мандела--------------------
+                </TextBlock>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window> 
+
+    
+    
